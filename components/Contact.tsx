@@ -1,17 +1,17 @@
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
     {
-      name: "GitHub",
-      icon: Github,
-      href: "https://github.com",
+      name: "Instagram",
+      icon: Instagram,
+      href: "https://www.instagram.com/loomifyenterprises/",
       ariaLabel: "GitHub Profile",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/loomify-enterprises-undefined-08b7b13b4/",
       ariaLabel: "LinkedIn Profile",
     },
   ];
@@ -23,11 +23,11 @@ export default function Contact() {
           Let&apos;s Connect
         </h2>
         <p className="mt-6 text-muted-foreground text-base sm:text-lg max-w-lg mx-auto">
-          I&apos;m always open to discussing new opportunities, interesting
+          We&apos;re always open to discussing new opportunities, interesting
           projects, or just having a chat about technology.
         </p>
         <a
-          href="mailto:hello@example.com"
+          href="loomifyenterprises@gmail.com"
           className="inline-flex items-center gap-2 mt-10 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-opacity duration-200"
         >
           <Mail className="w-4 h-4" />

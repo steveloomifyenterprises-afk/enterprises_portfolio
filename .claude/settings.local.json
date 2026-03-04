@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo create enterprise_portfolio --public --source=. --remote=origin --push)",
+      "Bash(where gh)",
+      "Bash(gh auth status)"
+    ]
+  }
+}

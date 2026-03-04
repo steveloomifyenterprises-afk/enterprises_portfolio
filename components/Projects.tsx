@@ -14,17 +14,17 @@ const projects = [
     title: "Task Management Website w/ PWA",
     description:
       "An AI assisted Task Management website with JWT authentication and AI Chat Section that makes you get the job done.",
-    technologies: ["Android", "FastAPI", "Python"],
+    technologies: ["Android", "FastAPI", "Python","Next.js","Typescript"],
     link: "https://taskflow-app-frontend.vercel.app/",
     image: "/web-2.png",
   },
   {
-    title: "Construction Company Portal",
+    title: "Blog Website With Headless CMS",
     description:
-      "Portfolio and inventory tracking system for construction management, featuring project galleries and resource analytics.",
-    technologies: ["Next.js", "FastAPI", "PostgreSQL"],
-    link: "#",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop",
+      "Blog Website built with sanity Studio for dynamic content handling up along with Supabase Backend.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity's Headless CMS"],
+    link: "https://dev-blog-blue-zeta.vercel.app/",
+    image: "/web-3.png",
   },
 ];
 
