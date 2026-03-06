@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Github, Linkedin, Instagram, Copy, Check } from "lucide-react";
+import { Mail, Github, Linkedin, Instagram, Copy, Check, Facebook } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
@@ -14,6 +14,12 @@ export default function Contact() {
   };
 
   const socialLinks = [
+    {
+      name: "Facebook",
+      icon: Facebook,
+      href: "https://www.facebook.com/profile.php?id=61583739864614",
+      ariaLabel: "Facebook Profile",
+    },
     {
       name: "Instagram",
       icon: Instagram,
