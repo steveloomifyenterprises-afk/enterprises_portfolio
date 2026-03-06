@@ -1,17 +1,29 @@
-import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+"use client";
+
+import { Mail, Github, Linkedin, Instagram, Copy, Check } from "lucide-react";
+import { useState } from "react";
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false);
+  const email = "loomifyenterprises@gmail.com";
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const socialLinks = [
     {
       name: "Instagram",
       icon: Instagram,
       href: "https://www.instagram.com/loomifyenterprises/",
-      ariaLabel: "GitHub Profile",
+      ariaLabel: "Instagram Profile",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://www.linkedin.com/in/loomify-enterprises-undefined-08b7b13b4/",
+      href: "https://www.linkedin.com/in/loomify-enterprises-08b7b13b4/",
       ariaLabel: "LinkedIn Profile",
     },
   ];
@@ -26,13 +38,31 @@ export default function Contact() {
           We&apos;re always open to discussing new opportunities, interesting
           projects, or just having a chat about technology.
         </p>
+
         <a
-          href="loomifyenterprises@gmail.com"
+          href="mailto:loomifyenterprises@gmail.com"
           className="inline-flex items-center gap-2 mt-10 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-opacity duration-200"
         >
           <Mail className="w-4 h-4" />
           Get in Touch
         </a>
+
+        {/* Email Display with Copy */}
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <span className="text-sm text-muted-foreground">{email}</span>
+          <button
+            onClick={copyEmail}
+            className="p-1.5 rounded-full hover:bg-muted transition-colors"
+            title="Copy email"
+          >
+            {copied ? (
+              <Check className="w-4 h-4 text-green-500" />
+            ) : (
+              <Copy className="w-4 h-4 text-muted-foreground hover:text-foreground" />
+            )}
+          </button>
+        </div>
+
         <div className="mt-16 pt-8 border-t border-border/50">
           <div className="flex items-center justify-center gap-8">
             {socialLinks.map((social) => (
