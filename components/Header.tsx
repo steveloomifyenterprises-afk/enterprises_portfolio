@@ -2,17 +2,43 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Expertise", href: "#expertise" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+type NavLink = {
+  name: string;
+  href?: string;
+  action?: "scroll";
+};
+
+const navLinks: NavLink[] = [
+  { name: "Home", href: "/" },
+  { name: "Expertise", href: "/about" },
+  { name: "Projects", href: "/projects" },
 ];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const scrollToBottom = () => {
+    setIsMenuOpen(false);
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
+  const handleNavClick = (link: NavLink) => {
+    if (link.action === "scroll") {
+      scrollToBottom();
+    } else if (link.href) {
+      router.push(link.href);
+      setIsMenuOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,13 +47,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setIsMenuOpen(false);
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <header
@@ -40,25 +59,27 @@ export default function Header() {
       <nav className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => scrollToSection(e, "#home")}
+          <Link
+            href="/"
             className="text-xl font-semibold tracking-tight hover:opacity-70 transition-opacity"
           >
             Loomify Enterprises.
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => handleNavClick(link)}
+                className={`text-sm transition-colors ${
+                  link.href === pathname
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -84,14 +105,17 @@ export default function Header() {
         >
           <div className="flex flex-col gap-4 pt-4">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.name}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                onClick={() => handleNavClick(link)}
+                className={`text-sm transition-colors py-2 text-left ${
+                  link.href === pathname
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.name}
-              </a>
+              </button>
             ))}
           </div>
         </div>

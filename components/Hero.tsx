@@ -3,8 +3,11 @@
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -19,7 +22,7 @@ export default function Hero() {
         </p>
         <div className="mt-10 opacity-0 animate-fade-in animation-delay-200">
           <button
-            onClick={scrollToContact}
+            onClick={scrollToBottom}
             className="group inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-opacity duration-200"
           >
             Get in Touch

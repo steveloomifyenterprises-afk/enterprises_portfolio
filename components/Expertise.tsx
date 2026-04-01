@@ -23,7 +23,7 @@ const expertiseAreas = [
 
 export default function Expertise() {
   return (
-    <section className="py-24 sm:py-32 px-6 lg:px-8 scroll-mt-16" id="expertise">
+    <section className="py-24 sm:py-32 px-6 lg:px-8 pt-24">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-center">
           Expertise

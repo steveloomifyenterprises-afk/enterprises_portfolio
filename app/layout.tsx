@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -24,7 +25,10 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.variable} font-poppins antialiased`}>
         <Header />
-        {children}
+        <main className="relative z-10 bg-gradient-to-b from-background to-background min-h-screen pb-[500px]">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
