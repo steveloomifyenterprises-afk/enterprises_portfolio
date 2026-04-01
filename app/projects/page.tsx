@@ -10,9 +10,9 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen">
       <HeroSection
-        title="My Projects"
-        description="A showcase of my work in web development, mobile apps, and backend systems."
-        primaryButtonText="View All Work"
+        title="Our Projects"
+        description="A showcase of our work in web development, mobile apps, and backend systems."
+        // primaryButtonText="View All Work"
       />
       <Projects />
     </main>

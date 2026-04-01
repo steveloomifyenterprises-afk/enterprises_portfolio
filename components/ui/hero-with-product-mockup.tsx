@@ -1,14 +1,11 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 
 interface HeroSectionProps {
   title?: string;
   description?: string;
-  primaryButtonText?: string;
-  primaryButtonIcon?: React.ReactNode;
   brandColor?: string;
   accentColor?: string;
   showMockups?: boolean;
@@ -18,8 +15,6 @@ interface HeroSectionProps {
 export function HeroSection({
   title = "Transform your digital experience",
   description = "Streamline your daily tasks with fewer distractions and more focus.",
-  primaryButtonText = "Get Started",
-  primaryButtonIcon = <ArrowRight size={20} />,
   brandColor = "blue",
   accentColor = "purple",
   showMockups = true,
@@ -41,15 +36,6 @@ export function HeroSection({
             {description}
           </p>
 
-          <div className="pt-4">
-            <Button
-              size="lg"
-              className="cursor-pointer text-base sm:text-lg font-semibold px-6 sm:px-8 py-5 sm:py-6 rounded-xl w-full sm:w-auto flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transition-all duration-200"
-            >
-              {primaryButtonText}
-              {primaryButtonIcon}
-            </Button>
-          </div>
         </div>
 
         {/* Product Mockups - Right Side */}
